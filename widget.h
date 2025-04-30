@@ -23,6 +23,7 @@ private slots:
     void buyMilk();
     void reset();
     void updateDrinkButtons();
+    void on_reset_clicked();
 
 private:
     Ui::Widget *ui;
