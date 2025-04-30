@@ -95,3 +95,19 @@ void Widget::updateDrinkButtons() {
     ui->buyTea->setEnabled(money >= 150);
     ui->buyMilk->setEnabled(money >= 200);
 }
+
+void Widget::on_reset_clicked(){
+    QMessageBox MsgBox;
+
+    int token500 = money / 500; money %= 500;
+    int token100 = money / 100; money %= 100;
+    int token50 = money / 50; money %= 50;
+    int token10 = money / 10; money %= 10;
+
+    QString msgStr = QString("[500] : %1, [100] : %2, [50] : %3, [10] : %4").arg(token500).arg(token100).arg(token50).arg(token10);
+    MsgBox.setText(msgStr);
+    MsgBox.exec();
+
+    changeMoney(-money);
+    enableButtons();
+}
